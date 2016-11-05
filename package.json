@@ -1,6 +1,6 @@
 {
   "name": "generator-maso",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Opinionated boilerplate for a React application",
   "scripts": {
     "compile": "babel --presets es2015,stage-0 --plugins transform-runtime -d app/ --ignore src/templates src/; cp -R src/templates app",
@@ -9,7 +9,9 @@
     "test": "eslint --debug src/; ava"
   },
   "author": "Benjamin Goh <masotime@gmail.com>",
-  "files": [ "app" ],
+  "files": [
+    "app"
+  ],
   "license": "ISC",
   "dependencies": {
     "babel-runtime": "^6.6.1",
@@ -20,7 +22,9 @@
     "type": "git",
     "url": "https://github.com/masotime/generator-maso.git"
   },
-  "keywords": [ "yeoman-generator" ],
+  "keywords": [
+    "yeoman-generator"
+  ],
   "devDependencies": {
     "ava": "^0.16.0",
     "babel-cli": "^6.7.5",
