@@ -6,9 +6,10 @@
     "compile": "babel --presets es2015,stage-0 --plugins transform-runtime -d app/ --ignore src/templates src/; cp -R src/templates app",
     "lint": "eslint --debug src/",
     "prepublish": "npm run compile",
-    "test": "ava"
+    "test": "eslint --debug src/; ava"
   },
   "author": "Benjamin Goh <masotime@gmail.com>",
+  "files": [ "app" ],
   "license": "ISC",
   "dependencies": {
     "babel-runtime": "^6.6.1",
@@ -19,6 +20,7 @@
     "type": "git",
     "url": "https://github.com/masotime/generator-maso.git"
   },
+  "keywords": [ "yeoman-generator" ],
   "devDependencies": {
     "ava": "^0.16.0",
     "babel-cli": "^6.7.5",

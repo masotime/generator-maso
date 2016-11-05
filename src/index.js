@@ -10,9 +10,9 @@ function askFor(name, message, _default) {
 	};
 }
 
-module.exports = class Generator extends Base {
-	constructor(...args) {
-		super(...args);
+export default class Generator extends Base {
+	constructor(args) {
+		super(args);
 	}
 
 	_copy(src, dest, model = {}) {
@@ -63,7 +63,7 @@ module.exports = class Generator extends Base {
 			self._copy('.babelrc', '.babelrc');
 			self._copy('.eslintrc', '.eslintrc');
 			self._copy('.gitig', '.gitignore');
-			self._copy('package.json', 'package.json', {
+			self._copy('pkg.json', 'package.json', {
 				appname, description, author, srcmain, srcmain, srcpath
 			});
 			self._copy('src/index.js', srcmain, { author });
