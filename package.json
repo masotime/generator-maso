@@ -1,0 +1,33 @@
+{
+  "name": "generator-maso",
+  "version": "0.0.1",
+  "description": "Opinionated boilerplate for a React application",
+  "scripts": {
+    "compile": "babel --presets es2015,stage-0 --plugins transform-runtime -d app/ --ignore src/templates src/; cp -R src/templates app",
+    "lint": "eslint --debug src/",
+    "prepublish": "npm run compile",
+    "test": "ava"
+  },
+  "author": "Benjamin Goh <masotime@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "babel-runtime": "^6.6.1",
+    "bluebird": "^3.3.5",
+    "yeoman-generator": "^0.22.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/masotime/generator-ecma.git"
+  },
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "babel-cli": "^6.7.5",
+    "babel-core": "^6.7.6",
+    "babel-eslint": "^6.0.3",
+    "babel-plugin-transform-runtime": "^6.7.5",
+    "babel-polyfill": "^6.7.4",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "eslint": "^2.8.0"
+  }
+}
