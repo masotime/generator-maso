@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/masotime/generator-ecma.git"
+    "url": "https://github.com/masotime/generator-maso.git"
   },
   "devDependencies": {
     "ava": "^0.16.0",
