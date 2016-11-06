@@ -5,13 +5,11 @@
   "scripts": {
     "compile": "babel --presets es2015,stage-0 --plugins transform-runtime -d app/ --ignore src/templates src/; cp -R src/templates app",
     "lint": "eslint --debug src/",
-    "prepublish": "npm run compile",
+    "prepublish": "rm -rf app/; npm run compile",
     "test": "eslint --debug src/; ava"
   },
+  "files": [ "app" ],
   "author": "Benjamin Goh <masotime@gmail.com>",
-  "files": [
-    "app"
-  ],
   "license": "ISC",
   "dependencies": {
     "babel-runtime": "^6.6.1",

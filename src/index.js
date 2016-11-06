@@ -10,9 +10,10 @@ function askFor(name, message, _default) {
 	};
 }
 
-export default class Generator extends Base {
-	constructor(args) {
-		super(args);
+// DON'T USE DEFAULT EXPORTS OR THE WORLD WILL EXPLODE
+module.exports = class Generator extends Base {
+	constructor(...args) { // multiple arguments are spread, don't change
+		super(...args);
 	}
 
 	_copy(src, dest, model = {}) {
@@ -63,10 +64,10 @@ export default class Generator extends Base {
 			self._copy('.babelrc', '.babelrc');
 			self._copy('.eslintrc', '.eslintrc');
 			self._copy('.gitig', '.gitignore');
-			self._copy('pkg.json', 'package.json', {
+			self._copy('package.json', 'package.json', {
 				appname, description, author, srcmain, srcmain, srcpath
 			});
-			self._copy('src/index.js', srcmain, { author });
+			self._copy('src/**/*', srcpath, { appname, description, author });
 		} catch (err) {
 			console.error(err.stack);
 		}
