@@ -11,7 +11,10 @@ let error;
 const fs = new MemoryFs();
 const compiler = webpack({
 	entry: { 
-		app: [BUNDLE_SOURCE]
+		app: [
+			require.resolve('babel-polyfill'),
+			BUNDLE_SOURCE
+		]
 	},
 	output: {
 		path: '/',
@@ -26,7 +29,8 @@ const compiler = webpack({
 				loader: require.resolve('babel-loader'),
 			}
 		]
-	}
+	},
+	devtool: 'inline-source-map'
 });
 
 compiler.outputFileSystem = fs;
