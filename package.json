@@ -1,6 +1,6 @@
 {
   "name": "generator-maso",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Opinionated boilerplate for a React application",
   "scripts": {
     "compile": "babel --presets es2015,stage-0 --plugins transform-runtime -d app/ --ignore src/templates src/; cp -R src/templates app",
