@@ -10,6 +10,7 @@ export default class Html extends Component {
 		return (
 			<html>
 				<head>
+					<meta charSet="utf-8" /> { /* critical for universal rendering */ }
 					<title>{title}</title>
 				</head>
 				<body>
