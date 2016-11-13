@@ -57,7 +57,7 @@ module.exports = class Generator extends Base {
 		const self = this;
 		const { appname, description, author, src } = self.choices;
 
-		const srcmain = join('.', src, 'index.js');
+		const srcmain = join('.', src, 'server', 'index.js');
 		const srcpath = join('.', src);
 
 		try {
