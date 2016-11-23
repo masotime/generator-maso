@@ -1,6 +1,6 @@
 # generator-maso
 
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+[![npm downloads][downloads-image]][downloads-url] [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 
 (currently just squatting for npm space)
 
@@ -8,6 +8,8 @@ An opinonated idea of the basics for any React application, regardless of framew
 
 The basis of this generator comes from [base-react-app][base-react-app-url]
 
+[downloads-image]: https://img.shields.io/npm/dm/generator-maso.svg?style=flat-square
+[downloads-url]: https://www.npmjs.com/package/generator-maso
 [npm-image]: https://badge.fury.io/js/generator-maso.svg
 [npm-url]: https://npmjs.org/package/generator-maso
 [travis-image]: https://travis-ci.org/masotime/generator-maso.svg?branch=master
