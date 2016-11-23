@@ -1,7 +1,7 @@
 {
   "parser": "babel-eslint",
-  "plugins": [ "react", "import" ],
-  "extends": [ "eslint:recommended", "plugin:react/recommended", "plugin:import/recommended" ],
+  "plugins": [ "import" ],
+  "extends": [ "eslint:recommended", "plugin:import/recommended" ],
   "rules": {
     "no-undef": 2,
     "no-unused-vars": 2,

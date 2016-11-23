@@ -11,7 +11,7 @@ function askFor(name, message, _default) {
 }
 
 // DON'T USE DEFAULT EXPORTS OR THE WORLD WILL EXPLODE
-module.exports = class Generator extends Base {
+export default class Generator extends Base {
 	constructor(...args) { // multiple arguments are spread, don't change
 		super(...args);
 	}
@@ -27,7 +27,6 @@ module.exports = class Generator extends Base {
 
 	prompting() {
 		const self = this;
-		const done = self.async();
 		const prompts = [
 			askFor('appname', 'Project name', self.appname),
 			askFor('description', 'Description', 'Your description here'),
@@ -35,22 +34,21 @@ module.exports = class Generator extends Base {
 			askFor('source', 'Source ES2015 folder', 'src')
 		];
 
-		self.prompt(prompts, answers => {
+		return self.prompt(prompts)
+			.then(answers => {
 			let { appname, description, author, source } = answers;
-			self.choices = { appname, description, author, src: source };
+				self.choices = { appname, description, author, src: source };
 
-			// create the folder if the appname isn't the same as the current folder
-			const currentRoot = self.destinationRoot();
-			const currentFolder = basename(currentRoot);
+				// create the folder if the appname isn't the same as the current folder
+				const currentRoot = self.destinationRoot();
+				const currentFolder = basename(currentRoot);
 
-			if (currentFolder !== appname) {
-				const newRoot = join(currentRoot, appname);
-				this.log(`Since the current folder ${currentFolder} isn't the same as the application name ${appname}, ${newRoot} will be created.`);
-				self.destinationRoot(newRoot);
-			}
-
-			done();
-		});
+				if (currentFolder !== appname) {
+					const newRoot = join(currentRoot, appname);
+					this.log(`Since the current folder ${currentFolder} isn't the same as the application name ${appname}, ${newRoot} will be created.`);
+					self.destinationRoot(newRoot);
+				}
+			});
 	}
 
 	writing() {
@@ -62,7 +60,7 @@ module.exports = class Generator extends Base {
 
 		try {
 			self._copy('.babelrc', '.babelrc');
-			self._copy('.eslintrc', '.eslintrc');
+			self._copy('.eslin', '.eslintrc');
 			self._copy('.gitig', '.gitignore');
 			self._copy('package.json', 'package.json', {
 				appname, description, author, srcmain, srcmain, srcpath
