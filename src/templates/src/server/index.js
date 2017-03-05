@@ -4,22 +4,23 @@ import { PORT } from 'common/constants';
 // bundling of bundle.js
 import bundler from 'server/bundler';
 
-// React stuff
-import React from 'react';
-import { renderToString } from 'react-dom/server';
-import App from 'components';
+// hot-reloading of express routes
+import initWatcher from 'require-watch';
 
 const app = express();
 
 app.use(bundler());
 
-app.get('/', (req, res) => {
-	const model = {
-		title: '<%= appname %>',
-		message: 'Hello <%= author %>!'
-	};
-
-	res.status(200).end(`<!DOCTYPE HTML>${renderToString(<App model={model} />)}`);
-});
+// here we use a require statement instead of imports to enable hot reloading
+// if you don't want server-side hot reloading, then change the following:
+//
+// - import initWatcher from 'server/watcher';
+// + import router from 'server/router';
+//
+// - initWatcher(require.resolve('server/router'));
+// - app.use('/', (req, res, next) => require('server/router').default(req, res, next));
+// + app.use('/', router);
+initWatcher(require.resolve('server/router'));
+app.use('/', (req, res, next) => require('server/router').default(req, res, next));
 
 app.listen(PORT, () => console.log(`✅  Web server started at http://localhost:${PORT}`));

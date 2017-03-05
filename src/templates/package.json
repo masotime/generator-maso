@@ -19,16 +19,19 @@
     "babel-preset-es2015": "^6",
     "babel-preset-react": "^6",
     "babel-preset-stage-0": "^6",
+    "chokidar": "^1",
+    "compression": "^1",
     "express": "^4",
     "react": "^15",
     "react-dom": "^15",
-    "webpack": "^1"
+    "require-watch": "^1",
+    "webpack": "^2"
   },
   "devDependencies": {
+    "babel-eslint": "^7",
     "eslint": "^3",
-    "eslint-plugin-react": "^6",
-    "eslint-plugin-import": "^2",
     "eslint-import-resolver-babel-module": "^2",
-    "babel-eslint": "^7"
+    "eslint-plugin-react": "^6",
+    "eslint-plugin-import": "^2"
   }
 }

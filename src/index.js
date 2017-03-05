@@ -59,11 +59,12 @@ export default class Generator extends Base {
 		const srcpath = join('.', src);
 
 		try {
+			self._copy('.editorconfig', '.editorconfig');
 			self._copy('.babelrc', '.babelrc');
 			self._copy('.eslin', '.eslintrc');
 			self._copy('.gitig', '.gitignore');
 			self._copy('package.json', 'package.json', {
-				appname, description, author, srcmain, srcmain, srcpath
+				appname, description, author, srcmain, srcpath
 			});
 			self._copy('src/**/*', srcpath, { appname, description, author });
 		} catch (err) {

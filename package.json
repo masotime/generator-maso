@@ -6,6 +6,7 @@
     "compile": "rm -rf app/; babel --presets es2015,stage-0 --plugins transform-runtime,add-module-exports -d app/ --ignore src/templates src/; cp -R src/templates app",
     "lint": "eslint --debug src/",
     "prepublish": "npm run compile",
+    "postpublish": "rm -rf app/",
     "test": "eslint --debug src/; ava",
     "watch": "nodemon --exec 'npm run compile' --watch src"
   },
