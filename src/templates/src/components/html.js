@@ -1,5 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { BUNDLE_PATHNAME, SHARED_STATE_NAME } from 'common/constants';
+import serialize from 'serialize-javascript';
 
 const { node, oneOfType, arrayOf, object } = PropTypes;
 
@@ -17,7 +19,7 @@ export default class Html extends Component {
 				<body>
 					{children}
 					<script type="text/javascript" dangerouslySetInnerHTML={
-						{ __html: `window.${SHARED_STATE_NAME} = ${JSON.stringify(model)}` }
+						{ __html: `window.${SHARED_STATE_NAME} = ${serialize(model, { isJSON: true })}` }
 					}></script>
 					<script src={BUNDLE_PATHNAME}></script>
 				</body>

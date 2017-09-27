@@ -1,5 +1,6 @@
 // this is the root component
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Html from 'components/html';
 import SplashPage from 'components/pages/splash';
 
